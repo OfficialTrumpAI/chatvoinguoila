@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Với Người Lạ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Chat Với Người Lạ</h2>
+            <button id="report-btn" class="report-btn">Báo cáo</button>
+        </div>
+        <div id="status">Nhấn "Bắt đầu" để tìm người chat</div>
+        <div id="chat-box" class="chat-box"></div>
+        <div class="chat-input">
+            <textarea id="message-input" placeholder="Nhập tin nhắn..."></textarea>
+            <button id="emoji-btn">😊</button>
+            <button id="media-btn">Media</button>
+            <button id="send-btn">Gửi</button>
+            <button id="start-btn">Bắt đầu</button>
+        </div>
+        <div id="emoji-panel" class="emoji-panel hidden">
+            <!-- Emoji sẽ được thêm bằng JS -->
+        </div>
+        <div id="gif-panel" class="gif-panel hidden">
+            <input type="text" id="gif-search" placeholder="Tìm GIF trên Tenor...">
+            <div id="gif-results"></div>
+        </div>
+        <!-- Form báo cáo ẩn -->
+        <div id="report-form" class="report-form hidden">
+            <textarea id="report-content" placeholder="Nhập nội dung báo cáo..."></textarea>
+            <button id="submit-report">Gửi báo cáo</button>
+            <button id="cancel-report">Hủy</button>
+        </div>
+        <!-- Form chọn vị trí ẩn -->
+        <div id="location-form" class="location-form hidden">
+            <h3>Chọn vị trí của bạn</h3>
+            <select id="location-select">
+                <option value="Miền Nam">Miền Nam</option>
+                <option value="Miền Trung">Miền Trung</option>
+                <option value="Miền Bắc">Miền Bắc</option>
+            </select>
+            <button id="confirm-location">Xác nhận</button>
+            <button id="cancel-location">Hủy</button>
+        </div>
+        <!-- Popup cho Media -->
+        <div id="media-popup" class="media-popup hidden">
+            <button id="gif-option" class="hidden">GIF</button>
+            <div id="image-options" class="hidden">
+                <button id="upload-button" class="hidden">Chọn file</button>
+                <div id="drop-zone" class="drop-zone hidden">Kéo thả ảnh vào đây hoặc nhấp để chọn</div>
+            </div>
+            <input type="file" id="image-upload" accept="image/*" style="display: none;">
+        </div>
+        <!-- Popup xác nhận thoát -->
+        <div id="confirm-exit" class="confirm-exit hidden">
+            <h3>Bạn có chắc chắn muốn thoát?</h3>
+            <p>Thoát sẽ ngắt kết nối với người lạ hiện tại.</p>
+            <button id="confirm-yes">Có</button>
+            <button id="confirm-no">Không</button>
+        </div>
+    </div>
+    <div id="footer-text">Made by KAKAXITRUM ♥</div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
